@@ -11,7 +11,7 @@ const posts = (await getCollection("blog"))
 <BaseLayout title="Blog" description="Thoughts, notes, and things I'm learning.">
   <section class="py-8 md:py-12">
     <div class="mb-16 reveal">
-      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-coral)] mb-3 block">Writing</span>
+      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-accent)] mb-3 block">Writing</span>
       <h1 class="font-display font-bold text-4xl md:text-6xl tracking-tight mb-4">
         Blog
       </h1>
@@ -42,7 +42,7 @@ const posts = (await getCollection("blog"))
 </BaseLayout>
 
 <style>
-  html.light p {
-    color: var(--color-light-text-secondary);
+  html.dark p {
+    color: var(--color-dark-text-secondary);
   }
 </style>

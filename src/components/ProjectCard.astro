@@ -11,17 +11,17 @@ const num = String(index + 1).padStart(2, "0");
 ---
 
 <article
-  class="reveal group relative p-6 sm:p-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/50 transition-all duration-500 hover:border-[var(--color-coral)]/40 hover:bg-[var(--color-surface)]"
+  class="reveal group relative p-6 sm:p-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/50 transition-all duration-500 hover:border-[var(--color-accent)]/40 hover:bg-[var(--color-surface)]"
   style={`transition-delay: ${index * 0.08}s`}
 >
   <!-- Number accent -->
-  <span class="absolute -top-3 -left-1 sm:-left-2 font-display font-bold text-5xl sm:text-6xl text-[var(--color-coral)]/10 group-hover:text-[var(--color-coral)]/20 transition-colors duration-500 select-none pointer-events-none">
+  <span class="absolute -top-3 -left-1 sm:-left-2 font-display font-bold text-5xl sm:text-6xl text-[var(--color-accent)]/10 group-hover:text-[var(--color-accent)]/20 transition-colors duration-500 select-none pointer-events-none">
     {num}
   </span>
 
   <!-- Header -->
   <div class="relative mb-4">
-    <h3 class="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-coral)] transition-colors duration-300">
+    <h3 class="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
       {project.link ? (
         <a
           href={project.link}
@@ -39,7 +39,7 @@ const num = String(index + 1).padStart(2, "0");
       )}
     </h3>
     <div class="flex items-center gap-2 mt-2">
-      <span class="text-xs font-mono text-[var(--color-coral)]">{project.role}</span>
+      <span class="text-xs font-mono text-[var(--color-accent)]">{project.role}</span>
       <span class="text-[var(--color-text-tertiary)]">&middot;</span>
       <span class="text-xs font-mono text-[var(--color-text-tertiary)]">{project.period}</span>
     </div>
@@ -55,7 +55,7 @@ const num = String(index + 1).padStart(2, "0");
     <ul class="mb-5 space-y-2">
       {project.highlights.map((item) => (
         <li class="text-sm text-[var(--color-text-secondary)] flex gap-2.5">
-          <span class="text-[var(--color-coral)] mt-1.5 shrink-0 w-1 h-1 rounded-full bg-[var(--color-coral)]"></span>
+          <span class="text-[var(--color-accent)] mt-1.5 shrink-0 w-1 h-1 rounded-full bg-[var(--color-accent)]"></span>
           <span>{item}</span>
         </li>
       ))}
@@ -65,7 +65,7 @@ const num = String(index + 1).padStart(2, "0");
   <!-- Tags -->
   <div class="flex flex-wrap gap-2">
     {project.tags.map((tag) => (
-      <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-md bg-[var(--color-surface-raised)] text-[var(--color-text-tertiary)] border border-[var(--color-border)] group-hover:border-[var(--color-border-hover)] transition-colors">
+      <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-md bg-[var(--color-surface-raised)] text-[var(--color-text-tertiary)] border border-[var(--color-border)] group-hover:border-[var(--color-amber)]/45 group-hover:text-[var(--color-amber)] transition-colors">
         {tag}
       </span>
     ))}
@@ -73,28 +73,28 @@ const num = String(index + 1).padStart(2, "0");
 </article>
 
 <style>
-  html.light article {
-    background-color: rgba(240, 239, 236, 0.5);
-    border-color: var(--color-light-border);
+  html.dark article {
+    background-color: rgba(20, 20, 22, 0.5);
+    border-color: var(--color-dark-border);
   }
-  html.light article:hover {
-    background-color: var(--color-light-surface);
-    border-color: rgba(255, 107, 71, 0.4);
+  html.dark article:hover {
+    background-color: var(--color-dark-surface);
+    border-color: rgba(45, 140, 78, 0.4);
   }
-  html.light h3 {
-    color: var(--color-light-text);
+  html.dark h3 {
+    color: var(--color-dark-text);
   }
-  html.light .group:hover h3 {
-    color: var(--color-coral);
+  html.dark .group:hover h3 {
+    color: var(--color-accent);
   }
-  html.light p, html.light li span:last-child {
-    color: var(--color-light-text-secondary);
+  html.dark p, html.dark li span:last-child {
+    color: var(--color-dark-text-secondary);
   }
-  html.light span[class*="font-mono"][class*="text-\\[var\\(--color-text-tertiary\\)\\]"] {
-    color: var(--color-light-text-tertiary);
+  html.dark span[class*="font-mono"][class*="text-\\[var\\(--color-text-tertiary\\)\\]"] {
+    color: var(--color-dark-text-tertiary);
   }
-  html.light span[class*="bg-\\[var\\(--color-surface-raised\\)\\]"] {
-    background-color: var(--color-light-surface-raised);
-    border-color: var(--color-light-border);
+  html.dark span[class*="bg-\\[var\\(--color-surface-raised\\)\\]"] {
+    background-color: var(--color-dark-surface-raised);
+    border-color: var(--color-dark-border);
   }
 </style>

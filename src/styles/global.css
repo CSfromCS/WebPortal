@@ -8,29 +8,34 @@
   --font-sans: "General Sans", "Segoe UI", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Cascadia Code", monospace;
 
-  /* Dark-first palette */
-  --color-void: #0a0a0b;
-  --color-surface: #141416;
-  --color-surface-raised: #1e1e21;
-  --color-surface-bright: #28282c;
-  --color-text-primary: #f0eded;
-  --color-text-secondary: #8a8a8e;
-  --color-text-tertiary: #5a5a5e;
-  --color-coral: #28d98e;
-  --color-coral-bright: #4ee8a6;
-  --color-coral-dim: #1aad6f;
-  --color-border: #2a2a2e;
-  --color-border-hover: #3a3a3e;
+  /* Light-first palette */
+  --color-void: #faf7f2;
+  --color-surface: #f4eee5;
+  --color-surface-raised: #ece3d7;
+  --color-surface-bright: #e2d6c6;
+  --color-text-primary: #2c2825;
+  --color-text-secondary: #6f6258;
+  --color-text-tertiary: #9a8878;
+  --color-accent: #2d8c4e;
+  --color-accent-bright: #3da85f;
+  --color-accent-dim: #236f3d;
+  --color-amber: #c4883a;
+  --color-amber-bright: #d39a50;
+  --color-amber-dim: #a66d28;
+  --color-amber-soft: rgba(196, 136, 58, 0.12);
+  --color-border: #ded1c2;
+  --color-border-hover: #cbb8a3;
 
-  /* Light mode palette */
-  --color-light-bg: #fafaf8;
-  --color-light-surface: #f0efec;
-  --color-light-surface-raised: #e8e7e3;
-  --color-light-text: #1a1a1c;
-  --color-light-text-secondary: #6b6b6e;
-  --color-light-text-tertiary: #9a9a9e;
-  --color-light-border: #ddddd8;
-  --color-light-border-hover: #c8c8c3;
+  /* Dark mode overrides */
+  --color-dark-bg: #0a0a0b;
+  --color-dark-surface: #141416;
+  --color-dark-surface-raised: #1e1e21;
+  --color-dark-surface-bright: #28282c;
+  --color-dark-text: #f0eded;
+  --color-dark-text-secondary: #a3a0a0;
+  --color-dark-text-tertiary: #706b6b;
+  --color-dark-border: #2a2a2e;
+  --color-dark-border-hover: #3a3a3e;
 
   --animate-fade-in: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -98,6 +103,18 @@ body {
   overflow-x: hidden;
 }
 
+html.dark {
+  --color-void: var(--color-dark-bg);
+  --color-surface: var(--color-dark-surface);
+  --color-surface-raised: var(--color-dark-surface-raised);
+  --color-surface-bright: var(--color-dark-surface-bright);
+  --color-text-primary: var(--color-dark-text);
+  --color-text-secondary: var(--color-dark-text-secondary);
+  --color-text-tertiary: var(--color-dark-text-tertiary);
+  --color-border: var(--color-dark-border);
+  --color-border-hover: var(--color-dark-border-hover);
+}
+
 /* ── Noise Texture ── */
 body::before {
   content: "";
@@ -105,22 +122,17 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.035;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
-  mix-blend-mode: overlay;
-}
-
-/* ── Light Mode ── */
-html.light body {
-  background-color: var(--color-light-bg);
-  color: var(--color-light-text);
-}
-
-html.light body::before {
-  opacity: 0.02;
   mix-blend-mode: multiply;
+}
+
+/* ── Dark Mode ── */
+html.dark body::before {
+  opacity: 0.035;
+  mix-blend-mode: overlay;
 }
 
 /* ── Typography ── */
@@ -140,12 +152,12 @@ a {
 
 /* ── Selection ── */
 ::selection {
-  background-color: var(--color-coral);
+  background-color: var(--color-accent);
   color: white;
 }
 
-html.light ::selection {
-  background-color: var(--color-coral);
+html.dark ::selection {
+  background-color: var(--color-accent);
   color: white;
 }
 
@@ -197,7 +209,7 @@ html.light ::selection {
   left: 0;
   width: 0%;
   height: 2px;
-  background: var(--color-coral);
+  background: var(--color-accent);
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -248,12 +260,12 @@ html.light ::selection {
   border-radius: 0.25rem;
 }
 
-html.light .prose code {
-  background-color: var(--color-light-surface);
+html.dark .prose code {
+  background-color: var(--color-surface-raised);
 }
 
 .prose pre {
-  background-color: var(--color-surface) !important;
+  background-color: var(--color-surface-raised) !important;
   color: var(--color-text-primary) !important;
   padding: 1.25rem;
   border-radius: 0.75rem;
@@ -262,9 +274,9 @@ html.light .prose code {
   margin-bottom: 1.5rem;
 }
 
-html.light .prose pre {
-  background-color: var(--color-light-text) !important;
-  color: var(--color-light-bg) !important;
+html.dark .prose pre {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
 }
 
 .prose pre code {
@@ -273,7 +285,7 @@ html.light .prose pre {
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--color-coral);
+  border-left: 3px solid var(--color-accent);
   padding-left: 1.25rem;
   font-style: italic;
   color: var(--color-text-secondary);
@@ -281,14 +293,14 @@ html.light .prose pre {
 }
 
 .prose a {
-  color: var(--color-coral);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
 
 .prose a:hover {
-  color: var(--color-coral-bright);
+  color: var(--color-amber);
 }
 
 .prose hr {
@@ -297,8 +309,8 @@ html.light .prose pre {
   margin: 2rem 0;
 }
 
-html.light .prose hr {
-  border-color: var(--color-light-border);
+html.dark .prose hr {
+  border-color: var(--color-border);
 }
 
 /* ── Gradient blob background ── */
@@ -312,15 +324,15 @@ html.light .prose hr {
 }
 
 .blob-coral {
-  background: var(--color-coral);
+  background: var(--color-accent);
 }
 
 .blob-purple {
   background: #0d9e5c;
 }
 
-html.light .blob {
-  opacity: 0.08;
+html.dark .blob {
+  opacity: 0.12;
 }
 
 /* ── Marquee ── */
@@ -348,10 +360,10 @@ html.light .blob {
   background: var(--color-text-tertiary);
 }
 
-html.light ::-webkit-scrollbar-track {
-  background: var(--color-light-bg);
+html.dark ::-webkit-scrollbar-track {
+  background: var(--color-void);
 }
 
-html.light ::-webkit-scrollbar-thumb {
-  background: var(--color-light-border);
+html.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-border);
 }

@@ -14,7 +14,7 @@ const items = [
 <BaseLayout title="Now" description="What I'm currently up to.">
   <section class="py-8 md:py-12">
     <div class="mb-16 reveal">
-      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-coral)] mb-3 block">Status</span>
+      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-accent)] mb-3 block">Status</span>
       <h1 class="font-display font-bold text-4xl md:text-6xl tracking-tight mb-4">Now</h1>
       <p class="text-[var(--color-text-secondary)] text-sm">
         Last updated March 2026 &middot;
@@ -22,7 +22,7 @@ const items = [
           href="https://nownownow.com/about"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-[var(--color-coral)] hover:text-[var(--color-coral-bright)] transition-colors"
+          class="text-[var(--color-accent)] hover:text-[var(--color-accent-bright)] transition-colors"
         >
           What is a /now page?
         </a>
@@ -41,10 +41,10 @@ const items = [
 </BaseLayout>
 
 <style>
-  html.light .group:hover {
-    background-color: var(--color-light-surface);
+  html.dark .group:hover {
+    background-color: var(--color-dark-surface);
   }
-  html.light .text-\[var\(--color-text-secondary\)\] {
-    color: var(--color-light-text-secondary);
+  html.dark .text-\[var\(--color-text-secondary\)\] {
+    color: var(--color-dark-text-secondary);
   }
 </style>
