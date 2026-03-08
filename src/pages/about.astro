@@ -1,34 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const skills = [
-  "Python", "C++", "C#", "SQL", "NoSQL", "Java", "JavaScript", "R",
-  "PowerBI", "Tableau", "Excel", "Power Query",
-  "Transformers", "XGBoost", "YOLOv8", "NLP",
-  "Azure", "Docker", "Figma", "Raspberry Pi", "Arduino",
-  "Agile", "Scrum", "ITIL",
-];
-
-const interests = [
-  "Photography", "Mountaineering", "Urban Development", "Philosophy",
-  "Education", "Perfumes", "Running", "Chess", "Guitar",
-];
-
-const competitions = [
-  { title: "ICPC 2021", detail: "Highest Ranking Philippine Team" },
-  { title: "Google HackFest 2023", detail: "Grand Champion" },
-  { title: "P&G Next 8", detail: "Top 8 IT Manager graduates in PH" },
-  { title: "CS Summit 5.0", detail: "1st Runner-up + MDI Novare Award" },
-  { title: "AJSS 52.2", detail: "Invited as top ACET scorer nationwide" },
-];
-
-const leadership = [
-  { org: "Ateneo CODE", role: "Project Head, OrgDev Consultant. Consultancy to 60+ youth orgs nationwide." },
-  { org: "ICPC Manila 2022", role: "Secretariat Head" },
-  { org: "Ateneo Summer Programming Camp", role: "Head Secretariat & Tutor" },
-  { org: "PinoyTech Victoria", role: "Digital Transformation Consultant, Core Team" },
-  { org: "Filipino Community Council of Victoria", role: "Community Volunteer" },
-];
+const credentials = {
+  education: [
+    "B.S. Computer Science (Hons), Minor in Data Science & Analytics — Ateneo de Manila University",
+    "GPA: 3.94/4.0 | Rank 1 | Summa Cum Laude | St. Ignatius Award",
+    "3 full scholarships: Ateneo Full-ride, National DOST-SEI Merit, Director's List (Top 2%)",
+    "CAPM Certified (PMI, 2023)",
+  ],
+  notable: [
+    "ICPC 2021 — Highest-ranking Philippine team",
+    "Google HackFest 2023 — Grand Champion (built Refind in 2 days)",
+    "P&G Next 8 — Selected as one of the top 8 IT graduates in the Philippines",
+    "University thesis on Transformer-based transit prediction — accepted for oral presentation in Macau",
+  ],
+  community: [
+    "PinoyTech Victoria — Digital Transformation Consultant, Core Team",
+    "Ateneo CODE — Consultancy for 60+ youth organisations nationwide",
+    "ICPC Manila 2022 — Secretariat Head",
+    "Filipino Community Council of Victoria — Volunteer, Driver, Host",
+  ],
+};
 ---
 
 <BaseLayout title="About" description="The fuller story.">
@@ -39,143 +31,132 @@ const leadership = [
       <h1 class="font-display font-bold text-4xl md:text-6xl tracking-tight mb-4">About</h1>
     </div>
 
-    <!-- Who -->
-    <div class="mb-20 reveal">
+    <!-- Résumé version -->
+    <div class="mb-12 reveal">
       <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
         <p>
-          24-year-old Filipino software engineer living in Melbourne, Australia.
-          Originally from Novaliches, Philippines.
+          I'm Christian Sarabia — a Filipino software engineer based in Melbourne, Australia.
         </p>
         <p class="text-[var(--color-text-secondary)]">
-          I work at <span class="text-[var(--color-accent)] font-medium">Microsoft Azure</span> (L60),
-          scaling cloud infrastructure across 400+ datacenters. Before that, I studied Computer Science at
-          Ateneo de Manila University and interned at Citi.
+          I grew up in Novaliches in the Philippines, went through UP Integrated School, and studied Computer Science at
+          Ateneo de Manila University, where I graduated Summa Cum Laude, Rank 1, with the St. Ignatius Award — the
+          university's highest honour for academics, service, and character. I moved to Melbourne in mid-2024 and started
+          at Microsoft the following February.
         </p>
       </div>
     </div>
 
-    <!-- Education -->
-    <div class="mb-20 reveal">
-      <div class="flex items-center gap-3 mb-8">
-        <h2 class="font-display font-semibold text-2xl">Education</h2>
-        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
-      </div>
-      <div class="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/50">
-        <h3 class="font-display font-semibold text-xl mb-1">Ateneo de Manila University</h3>
-        <p class="text-xs font-mono text-[var(--color-accent)] mb-4">
-          B.S. Computer Science (Hons), Minor in Data Science &middot; 2020&ndash;2024
+    <!-- The turn -->
+    <div class="mb-12 reveal">
+      <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
+        <p class="font-medium text-[var(--color-text-primary)]">
+          That's the résumé version. Here's the real one.
         </p>
-        <div class="grid sm:grid-cols-2 gap-3">
-          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
-            <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
-            <span>GPA: 3.94/4.0 &mdash; Rank 1, Summa Cum Laude</span>
-          </div>
-          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
-            <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
-            <span>St. Ignatius Award &mdash; Most Outstanding Scholar</span>
-          </div>
-          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
-            <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
-            <span>3 Full Scholarships (Ateneo, DOST-SEI, Director's List)</span>
-          </div>
-          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
-            <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
-            <span>CAPM Certified (PMI, Sep 2023)</span>
-          </div>
-        </div>
+        <p class="text-[var(--color-text-secondary)]">
+          Moving to Melbourne meant leaving behind a life that was full — friends everywhere, orgs I'd built with people
+          I loved, a campus where I knew every corner. What I got in exchange was a good career and a quiet apartment. So
+          the question I've been working on since isn't about professional growth. It's about how to build a life that
+          feels as rich as the one I left.
+        </p>
       </div>
     </div>
 
-    <!-- Competitions -->
-    <div class="mb-20 reveal">
-      <div class="flex items-center gap-3 mb-8">
-        <h2 class="font-display font-semibold text-2xl">Competitions</h2>
-        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
-      </div>
-      <div class="grid gap-3">
-        {competitions.map((c) => (
-          <div class="flex items-start sm:items-center gap-4 py-3 border-b border-[var(--color-border)]">
-            <span class="font-display font-medium text-[var(--color-text-primary)] shrink-0">{c.title}</span>
-            <span class="hidden sm:block h-px flex-1 bg-[var(--color-border)]"></span>
-            <span class="text-sm text-[var(--color-text-secondary)]">{c.detail}</span>
-          </div>
-        ))}
+    <!-- Community -->
+    <div class="mb-12 reveal">
+      <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
+        <p class="text-[var(--color-text-secondary)]">
+          That's why community work isn't a side thing for me.
+          <span class="text-[var(--color-amber)] font-medium">PinoyTech Victoria</span>, the Filipino Community Council,
+          mentoring — these aren't extracurriculars. They're how I stay connected to what I care about. In the Philippines,
+          I spent four years at <span class="text-[var(--color-amber)] font-medium">Ateneo CODE</span> consulting for
+          youth organisations, facilitated nationwide events, tutored high schoolers in competitive programming, and helped
+          run ICPC Manila. That instinct — build something, bring people in, make it work — is just how I operate.
+        </p>
       </div>
     </div>
 
-    <!-- Leadership -->
-    <div class="mb-20 reveal">
-      <div class="flex items-center gap-3 mb-8">
-        <h2 class="font-display font-semibold text-2xl">Leadership & Community</h2>
-        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
-      </div>
-      <div class="space-y-4">
-        {leadership.map((l) => (
-          <div class="flex gap-3">
-            <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></span>
-            <div>
-              <span class="font-medium text-[var(--color-text-primary)]">{l.org}</span>
-              <span class="text-[var(--color-text-secondary)]"> &mdash; {l.role}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Skills -->
-    <div class="mb-20 reveal">
-      <div class="flex items-center gap-3 mb-8">
-        <h2 class="font-display font-semibold text-2xl">Skills</h2>
-        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        {skills.map((skill) => (
-          <span class="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md bg-[var(--color-surface-raised)] text-[var(--color-text-tertiary)] border border-[var(--color-border)] hover:border-[var(--color-amber)]/50 hover:text-[var(--color-amber)] hover:bg-[var(--color-amber-soft)] transition-all duration-200 cursor-default">
-            {skill}
-          </span>
-        ))}
+    <!-- Professional identity -->
+    <div class="mb-12 reveal">
+      <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
+        <p class="text-[var(--color-text-secondary)]">
+          Professionally, I'm a systems thinker. I like understanding how things fit together, finding the leverage points,
+          and building solutions that hold up at scale. At Microsoft I do that with cloud infrastructure. Outside of work
+          I do it with communities and side projects.
+        </p>
       </div>
     </div>
 
     <!-- Interests -->
-    <div class="mb-8 reveal">
-      <div class="flex items-center gap-3 mb-6">
-        <h2 class="font-display font-semibold text-2xl">Beyond Code</h2>
+    <div class="mb-20 reveal">
+      <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
+        <p class="text-[var(--color-text-secondary)]">
+          I'm interested in a lot of things — AI, personal finance, running, perfumes, photography, philosophy, urban
+          development. I don't think interests need to justify themselves. Some of them will turn into something. Most of
+          them just make life more interesting.
+        </p>
+      </div>
+    </div>
+
+    <!-- The drawer -->
+    <div class="reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="font-display font-semibold text-2xl">The Drawer</h2>
         <div class="h-px flex-1 bg-[var(--color-border)]"></div>
       </div>
-      <div class="flex flex-wrap gap-3">
-        {interests.map((interest) => (
-          <span class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-amber)] transition-colors cursor-default">
-            {interest}
-          </span>
-        ))}
+      <p class="text-[var(--color-text-secondary)] text-lg mb-10 max-w-2xl">
+        If you want the full credentials, here's what's in the drawer.
+      </p>
+
+      <!-- Education -->
+      <div class="mb-10">
+        <h3 class="font-display font-medium text-lg mb-4 text-[var(--color-accent)]">Education</h3>
+        <div class="space-y-2">
+          {credentials.education.map((item) => (
+            <div class="flex gap-2.5 text-sm text-[var(--color-text-secondary)]">
+              <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Notable -->
+      <div class="mb-10">
+        <h3 class="font-display font-medium text-lg mb-4 text-[var(--color-accent)]">Notable</h3>
+        <div class="space-y-2">
+          {credentials.notable.map((item) => (
+            <div class="flex gap-2.5 text-sm text-[var(--color-text-secondary)]">
+              <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Community -->
+      <div class="mb-8">
+        <h3 class="font-display font-medium text-lg mb-4 text-[var(--color-accent)]">Community</h3>
+        <div class="space-y-2">
+          {credentials.community.map((item) => (
+            <div class="flex gap-2.5 text-sm text-[var(--color-text-secondary)]">
+              <span class="w-1 h-1 rounded-full bg-[var(--color-amber)] mt-2 shrink-0"></span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  html.dark .p-6 {
-    background-color: rgba(20, 20, 22, 0.5);
-    border-color: var(--color-dark-border);
-  }
-  html.dark .h-px {
-    background-color: var(--color-dark-border);
-  }
-  html.dark .border-b {
-    border-color: var(--color-dark-border);
-  }
-  html.dark span[class*="bg-\\[var\\(--color-surface-raised\\)\\]"] {
-    background-color: var(--color-dark-surface-raised);
-    border-color: var(--color-dark-border);
-  }
-  html.dark span.font-medium {
-    color: var(--color-dark-text);
-  }
   html.dark .text-\[var\(--color-text-secondary\)\] {
     color: var(--color-dark-text-secondary);
   }
   html.dark .text-\[var\(--color-text-primary\)\] {
     color: var(--color-dark-text);
+  }
+  html.dark .h-px {
+    background-color: var(--color-dark-border);
   }
 </style>
