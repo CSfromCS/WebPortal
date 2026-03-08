@@ -4,17 +4,30 @@ import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../data/projects";
 ---
 
-<BaseLayout title="Projects" description="A few things I've built and been part of.">
+<BaseLayout title="Projects" description="Things I've built and been part of.">
   <section class="py-8 md:py-12">
-    <h1 class="font-serif text-4xl md:text-5xl tracking-tight mb-4">Projects</h1>
-    <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] text-lg mb-12 max-w-lg">
-      A few things I've built and been part of. Not a full CV &mdash; just the stories worth telling.
-    </p>
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-coral)] mb-3 block">Portfolio</span>
+      <h1 class="font-display font-bold text-4xl md:text-6xl tracking-tight mb-4">
+        Projects
+      </h1>
+      <p class="text-[var(--color-text-secondary)] text-lg max-w-lg">
+        Not a full CV. Just the stories worth telling.
+      </p>
+    </div>
 
-    <div class="space-y-6">
-      {projects.map((project) => (
-        <ProjectCard project={project} />
+    <!-- Project list -->
+    <div class="space-y-8">
+      {projects.map((project, i) => (
+        <ProjectCard project={project} index={i} />
       ))}
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  html.light p {
+    color: var(--color-light-text-secondary);
+  }
+</style>

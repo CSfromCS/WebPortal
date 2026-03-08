@@ -1,47 +1,50 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const items = [
+  { emoji: "🏃", text: "Training for a 15km race (March 29, Melbourne)" },
+  { emoji: "☁️", text: "Building Azure infrastructure at Microsoft" },
+  { emoji: "🧠", text: "Building a personal knowledge base system" },
+  { emoji: "🌸", text: "Exploring perfumes" },
+  { emoji: "🎸", text: "Learning guitar" },
+  { emoji: "🀄", text: "Studying Mandarin" },
+];
 ---
 
 <BaseLayout title="Now" description="What I'm currently up to.">
   <section class="py-8 md:py-12">
-    <h1 class="font-serif text-4xl md:text-5xl tracking-tight mb-4">Now</h1>
-    <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] text-sm mb-12">
-      Last updated: March 2026 &middot;
-      <a
-        href="https://nownownow.com/about"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)]"
-      >
-        What is a /now page?
-      </a>
-    </p>
+    <div class="mb-16 reveal">
+      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-coral)] mb-3 block">Status</span>
+      <h1 class="font-display font-bold text-4xl md:text-6xl tracking-tight mb-4">Now</h1>
+      <p class="text-[var(--color-text-secondary)] text-sm">
+        Last updated March 2026 &middot;
+        <a
+          href="https://nownownow.com/about"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[var(--color-coral)] hover:text-[var(--color-coral-bright)] transition-colors"
+        >
+          What is a /now page?
+        </a>
+      </p>
+    </div>
 
-    <div class="space-y-6 text-lg leading-relaxed">
-      <div class="flex gap-3">
-        <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&#9702;</span>
-        <p>Training for a 15km race (March 29, Melbourne)</p>
-      </div>
-      <div class="flex gap-3">
-        <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&#9702;</span>
-        <p>Working on Azure infrastructure at Microsoft</p>
-      </div>
-      <div class="flex gap-3">
-        <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&#9702;</span>
-        <p>Building a personal knowledge base system</p>
-      </div>
-      <div class="flex gap-3">
-        <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&#9702;</span>
-        <p>Exploring perfumes</p>
-      </div>
-      <div class="flex gap-3">
-        <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&#9702;</span>
-        <p>Learning guitar</p>
-      </div>
-      <div class="flex gap-3">
-        <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&#9702;</span>
-        <p>Studying Mandarin</p>
-      </div>
+    <div class="reveal-stagger space-y-1">
+      {items.map((item) => (
+        <div class="group flex items-center gap-4 py-4 px-4 -mx-4 rounded-lg hover:bg-[var(--color-surface-raised)] transition-all duration-200">
+          <span class="text-xl">{item.emoji}</span>
+          <p class="text-lg">{item.text}</p>
+        </div>
+      ))}
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  html.light .group:hover {
+    background-color: var(--color-light-surface);
+  }
+  html.light .text-\[var\(--color-text-secondary\)\] {
+    color: var(--color-light-text-secondary);
+  }
+</style>

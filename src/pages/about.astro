@@ -13,116 +13,124 @@ const interests = [
   "Photography", "Mountaineering", "Urban Development", "Philosophy",
   "Education", "Perfumes", "Running", "Chess", "Guitar",
 ];
+
+const competitions = [
+  { title: "ICPC 2021", detail: "Highest Ranking Philippine Team" },
+  { title: "Google HackFest 2023", detail: "Grand Champion" },
+  { title: "P&G Next 8", detail: "Top 8 IT Manager graduates in PH" },
+  { title: "CS Summit 5.0", detail: "1st Runner-up + MDI Novare Award" },
+  { title: "AJSS 52.2", detail: "Invited as top ACET scorer nationwide" },
+];
+
+const leadership = [
+  { org: "Ateneo CODE", role: "Project Head, OrgDev Consultant. Consultancy to 60+ youth orgs nationwide." },
+  { org: "ICPC Manila 2022", role: "Secretariat Head" },
+  { org: "Ateneo Summer Programming Camp", role: "Head Secretariat & Tutor" },
+  { org: "PinoyTech Victoria", role: "Digital Transformation Consultant, Core Team" },
+  { org: "Filipino Community Council of Victoria", role: "Community Volunteer" },
+];
 ---
 
 <BaseLayout title="About" description="The fuller story.">
   <section class="py-8 md:py-12">
-    <h1 class="font-serif text-4xl md:text-5xl tracking-tight mb-12">About</h1>
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-coral)] mb-3 block">Background</span>
+      <h1 class="font-display font-bold text-4xl md:text-6xl tracking-tight mb-4">About</h1>
+    </div>
 
     <!-- Who -->
-    <div class="mb-14">
-      <p class="text-lg leading-relaxed mb-4">
-        I'm a 24-year-old Filipino software engineer living in Melbourne, Australia.
-        Originally from Novaliches, Philippines.
-      </p>
-      <p class="text-lg leading-relaxed">
-        I work at <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)]">Microsoft Azure</span> (L60),
-        scaling cloud infrastructure across 400+ datacenters. Before that, I studied Computer Science at
-        Ateneo de Manila University and spent time at Citi and in the competitive programming world.
-      </p>
+    <div class="mb-20 reveal">
+      <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
+        <p>
+          24-year-old Filipino software engineer living in Melbourne, Australia.
+          Originally from Novaliches, Philippines.
+        </p>
+        <p class="text-[var(--color-text-secondary)]">
+          I work at <span class="text-[var(--color-coral)] font-medium">Microsoft Azure</span> (L60),
+          scaling cloud infrastructure across 400+ datacenters. Before that, I studied Computer Science at
+          Ateneo de Manila University and interned at Citi.
+        </p>
+      </div>
     </div>
 
     <!-- Education -->
-    <div class="mb-14">
-      <h2 class="font-serif text-2xl mb-6 text-[var(--color-ink)] dark:text-[var(--color-paper)]">Education</h2>
-      <div class="space-y-4">
-        <div>
-          <h3 class="font-serif text-xl">Ateneo de Manila University</h3>
-          <p class="text-sm text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] mt-1">
-            B.S. Computer Science (Hons), Minor in Data Science & Analytics &middot; 2020&ndash;2024
-          </p>
-          <ul class="mt-3 space-y-2 text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)]">
-            <li class="flex gap-2">
-              <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-              GPA: 3.94/4.0 &mdash; Rank 1 in program, Summa Cum Laude
-            </li>
-            <li class="flex gap-2">
-              <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-              St. Ignatius Award &mdash; Most Outstanding Scholar (highest university honor): excellence in academics, extra-curriculars, and service
-            </li>
-            <li class="flex gap-2">
-              <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-              3 Full Scholarships: Ateneo Full-ride, National DOST-SEI Merit, Director's List (Top 2%)
-            </li>
-            <li class="flex gap-2">
-              <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-              CAPM Certified (PMI, Sep 2023)
-            </li>
-          </ul>
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="font-display font-semibold text-2xl">Education</h2>
+        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
+      </div>
+      <div class="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/50">
+        <h3 class="font-display font-semibold text-xl mb-1">Ateneo de Manila University</h3>
+        <p class="text-xs font-mono text-[var(--color-coral)] mb-4">
+          B.S. Computer Science (Hons), Minor in Data Science &middot; 2020&ndash;2024
+        </p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
+            <span class="w-1 h-1 rounded-full bg-[var(--color-coral)] mt-2 shrink-0"></span>
+            <span>GPA: 3.94/4.0 &mdash; Rank 1, Summa Cum Laude</span>
+          </div>
+          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
+            <span class="w-1 h-1 rounded-full bg-[var(--color-coral)] mt-2 shrink-0"></span>
+            <span>St. Ignatius Award &mdash; Most Outstanding Scholar</span>
+          </div>
+          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
+            <span class="w-1 h-1 rounded-full bg-[var(--color-coral)] mt-2 shrink-0"></span>
+            <span>3 Full Scholarships (Ateneo, DOST-SEI, Director's List)</span>
+          </div>
+          <div class="flex gap-2 text-sm text-[var(--color-text-secondary)]">
+            <span class="w-1 h-1 rounded-full bg-[var(--color-coral)] mt-2 shrink-0"></span>
+            <span>CAPM Certified (PMI, Sep 2023)</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Competitions & Recognition -->
-    <div class="mb-14">
-      <h2 class="font-serif text-2xl mb-6 text-[var(--color-ink)] dark:text-[var(--color-paper)]">Competitions & Recognition</h2>
-      <ul class="space-y-2 text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)]">
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          ICPC 2021 &mdash; Highest Ranking Philippine Team (International Collegiate Programming Contest)
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          Google HackFest 2023 &mdash; Grand Champion
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          P&G Next 8 (Feb 2023) &mdash; Selected as one of the Top 8 prospective IT Manager graduates in the Philippines
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          CS Summit 5.0 Ideathon &mdash; 1st Runner-up + MDI Novare Award
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          Ateneo Junior Summer Seminar (AJSS 52.2) &mdash; Invited as top ACET scorer nationwide
-        </li>
-      </ul>
+    <!-- Competitions -->
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="font-display font-semibold text-2xl">Competitions</h2>
+        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
+      </div>
+      <div class="grid gap-3">
+        {competitions.map((c) => (
+          <div class="flex items-start sm:items-center gap-4 py-3 border-b border-[var(--color-border)]">
+            <span class="font-display font-medium text-[var(--color-text-primary)] shrink-0">{c.title}</span>
+            <span class="hidden sm:block h-px flex-1 bg-[var(--color-border)]"></span>
+            <span class="text-sm text-[var(--color-text-secondary)]">{c.detail}</span>
+          </div>
+        ))}
+      </div>
     </div>
 
-    <!-- Leadership & Community -->
-    <div class="mb-14">
-      <h2 class="font-serif text-2xl mb-6 text-[var(--color-ink)] dark:text-[var(--color-paper)]">Leadership & Community</h2>
-      <ul class="space-y-2 text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)]">
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          <span><strong class="text-[var(--color-ink)] dark:text-[var(--color-paper)] font-medium">Ateneo CODE</strong> &mdash; Project Head, OrgDev Consultant. Provided consultancy services to 60+ youth organisations nationwide.</span>
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          <span><strong class="text-[var(--color-ink)] dark:text-[var(--color-paper)] font-medium">ICPC Manila 2022</strong> &mdash; Secretariat Head</span>
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          <span><strong class="text-[var(--color-ink)] dark:text-[var(--color-paper)] font-medium">Ateneo Summer Programming Camp</strong> &mdash; Head Secretariat & Tutor (introducing high schoolers to competitive programming)</span>
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          <span><strong class="text-[var(--color-ink)] dark:text-[var(--color-paper)] font-medium">PinoyTech Victoria</strong> &mdash; Digital Transformation Consultant, Core Team. Branding, client interaction, cybersecurity education, tech mentorship.</span>
-        </li>
-        <li class="flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] shrink-0">&bull;</span>
-          <span><strong class="text-[var(--color-ink)] dark:text-[var(--color-paper)] font-medium">Filipino Community Council of Victoria Inc.</strong> &mdash; Community Volunteer</span>
-        </li>
-      </ul>
+    <!-- Leadership -->
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="font-display font-semibold text-2xl">Leadership & Community</h2>
+        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
+      </div>
+      <div class="space-y-4">
+        {leadership.map((l) => (
+          <div class="flex gap-3">
+            <span class="w-1 h-1 rounded-full bg-[var(--color-coral)] mt-2.5 shrink-0"></span>
+            <div>
+              <span class="font-medium text-[var(--color-text-primary)]">{l.org}</span>
+              <span class="text-[var(--color-text-secondary)]"> &mdash; {l.role}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
-    <!-- Technical Skills -->
-    <div class="mb-14">
-      <h2 class="font-serif text-2xl mb-6 text-[var(--color-ink)] dark:text-[var(--color-paper)]">Technical Skills</h2>
+    <!-- Skills -->
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="font-display font-semibold text-2xl">Skills</h2>
+        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
+      </div>
       <div class="flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--color-cream-dark)] dark:bg-[var(--color-night-raised)] text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] border border-[var(--color-border-warm)] dark:border-[var(--color-border-night)]">
+          <span class="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md bg-[var(--color-surface-raised)] text-[var(--color-text-tertiary)] border border-[var(--color-border)] hover:border-[var(--color-coral)]/40 hover:text-[var(--color-coral)] transition-all duration-200 cursor-default">
             {skill}
           </span>
         ))}
@@ -130,11 +138,44 @@ const interests = [
     </div>
 
     <!-- Interests -->
-    <div class="mb-8">
-      <h2 class="font-serif text-2xl mb-4 text-[var(--color-ink)] dark:text-[var(--color-paper)]">Interests</h2>
-      <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] leading-relaxed">
-        {interests.join(" · ")}
-      </p>
+    <div class="mb-8 reveal">
+      <div class="flex items-center gap-3 mb-6">
+        <h2 class="font-display font-semibold text-2xl">Beyond Code</h2>
+        <div class="h-px flex-1 bg-[var(--color-border)]"></div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {interests.map((interest) => (
+          <span class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-coral)] transition-colors cursor-default">
+            {interest}
+          </span>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  html.light .p-6 {
+    background-color: rgba(240, 239, 236, 0.5);
+    border-color: var(--color-light-border);
+  }
+  html.light .h-px {
+    background-color: var(--color-light-border);
+  }
+  html.light .border-b {
+    border-color: var(--color-light-border);
+  }
+  html.light span[class*="bg-\\[var\\(--color-surface-raised\\)\\]"] {
+    background-color: var(--color-light-surface-raised);
+    border-color: var(--color-light-border);
+  }
+  html.light span.font-medium {
+    color: var(--color-light-text);
+  }
+  html.light .text-\[var\(--color-text-secondary\)\] {
+    color: var(--color-light-text-secondary);
+  }
+  html.light .text-\[var\(--color-text-primary\)\] {
+    color: var(--color-light-text);
+  }
+</style>

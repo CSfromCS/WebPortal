@@ -2,28 +2,41 @@
 const year = new Date().getFullYear();
 ---
 
-<footer
-  class="w-full max-w-3xl mx-auto px-6 py-10 mt-16 border-t border-[var(--color-border-warm)] dark:border-[var(--color-border-night)] transition-colors"
->
-  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)]">
+<footer class="w-full max-w-5xl mx-auto px-5 sm:px-8 py-8 mt-16 border-t border-[var(--color-border)] transition-colors">
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--color-text-tertiary)]">
     <p>&copy; {year} Christian Sarabia</p>
-    <div class="flex items-center gap-5">
+    <div class="flex items-center gap-4">
       <a
         href="https://github.com/CSfromCS"
         target="_blank"
         rel="noopener noreferrer"
-        class="no-underline hover:text-[var(--color-ink)] dark:hover:text-[var(--color-paper)] transition-colors"
+        class="hover:text-[var(--color-coral)] transition-colors"
       >
         GitHub
       </a>
+      <span class="text-[var(--color-border)]">/</span>
       <a
         href="https://linkedin.com/in/PLACEHOLDER"
         target="_blank"
         rel="noopener noreferrer"
-        class="no-underline hover:text-[var(--color-ink)] dark:hover:text-[var(--color-paper)] transition-colors"
+        class="hover:text-[var(--color-coral)] transition-colors"
       >
         LinkedIn
+      </a>
+      <span class="text-[var(--color-border)]">/</span>
+      <a
+        href="mailto:hello@christiansarabia.com"
+        class="hover:text-[var(--color-coral)] transition-colors"
+      >
+        Email
       </a>
     </div>
   </div>
 </footer>
+
+<style>
+  html.light footer {
+    border-color: var(--color-light-border);
+    color: var(--color-light-text-tertiary);
+  }
+</style>

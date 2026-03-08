@@ -6,9 +6,10 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  wide?: boolean;
 }
 
-const { title, description = "Software engineer at Microsoft Azure. Filipino in Melbourne." } = Astro.props;
+const { title, description = "Software engineer at Microsoft Azure. Filipino in Melbourne.", wide = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -19,39 +20,54 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title} | Christian Sarabia</title>
+    <title>{title === "Home" ? "Christian Sarabia" : `${title} — Christian Sarabia`}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content={`${title} | Christian Sarabia`} />
+    <meta property="og:title" content={`${title} — Christian Sarabia`} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Font preloads -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 
-    <!-- Theme initialization (runs before paint to prevent FOUC) -->
+    <!-- Dark is default. Light mode = add class "light" -->
     <script is:inline>
       (function () {
-        const stored = localStorage.getItem("theme");
-        if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-          document.documentElement.classList.add("dark");
+        var stored = localStorage.getItem("theme");
+        if (stored === "light" || (!stored && window.matchMedia("(prefers-color-scheme: light)").matches)) {
+          document.documentElement.classList.add("light");
         }
       })();
     </script>
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
-    <main class="flex-1 w-full max-w-3xl mx-auto px-6 pt-28 pb-16 animate-fade-in-up">
+    <main class:list={["flex-1 w-full mx-auto px-5 sm:px-8 pt-24 pb-16", wide ? "max-w-5xl" : "max-w-3xl"]}>
       <slot />
     </main>
     <Footer />
+
+    <!-- Scroll reveal observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      document.querySelectorAll(".reveal, .reveal-stagger").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>

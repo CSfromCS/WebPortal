@@ -10,13 +10,18 @@ const posts = (await getCollection("blog"))
 
 <BaseLayout title="Blog" description="Thoughts, notes, and things I'm learning.">
   <section class="py-8 md:py-12">
-    <h1 class="font-serif text-4xl md:text-5xl tracking-tight mb-4">Blog</h1>
-    <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] text-lg mb-12 max-w-lg">
-      Thoughts, notes, and things I'm learning.
-    </p>
+    <div class="mb-16 reveal">
+      <span class="text-xs font-mono uppercase tracking-widest text-[var(--color-coral)] mb-3 block">Writing</span>
+      <h1 class="font-display font-bold text-4xl md:text-6xl tracking-tight mb-4">
+        Blog
+      </h1>
+      <p class="text-[var(--color-text-secondary)] text-lg max-w-lg">
+        Thoughts, notes, and things I'm figuring out.
+      </p>
+    </div>
 
     {posts.length > 0 ? (
-      <div>
+      <div class="reveal-stagger">
         {posts.map((post) => (
           <BlogPostCard
             title={post.data.title}
@@ -27,9 +32,17 @@ const posts = (await getCollection("blog"))
         ))}
       </div>
     ) : (
-      <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] italic">
-        Nothing here yet. Check back soon.
-      </p>
+      <div class="reveal text-center py-20">
+        <p class="text-[var(--color-text-tertiary)] font-mono text-sm">
+          // nothing here yet
+        </p>
+      </div>
     )}
   </section>
 </BaseLayout>
+
+<style>
+  html.light p {
+    color: var(--color-light-text-secondary);
+  }
+</style>

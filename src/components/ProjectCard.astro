@@ -3,49 +3,59 @@ import type { Project } from "../data/projects";
 
 interface Props {
   project: Project;
+  index: number;
 }
 
-const { project } = Astro.props;
+const { project, index } = Astro.props;
+const num = String(index + 1).padStart(2, "0");
 ---
 
 <article
-  class="group p-6 rounded-lg border border-[var(--color-border-warm)] dark:border-[var(--color-border-night)] bg-[var(--color-cream-dark)]/50 dark:bg-[var(--color-night-raised)]/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-terracotta)]/30 dark:hover:border-[var(--color-terracotta-light)]/30"
+  class="reveal group relative p-6 sm:p-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/50 transition-all duration-500 hover:border-[var(--color-coral)]/40 hover:bg-[var(--color-surface)]"
+  style={`transition-delay: ${index * 0.08}s`}
 >
+  <!-- Number accent -->
+  <span class="absolute -top-3 -left-1 sm:-left-2 font-display font-bold text-5xl sm:text-6xl text-[var(--color-coral)]/10 group-hover:text-[var(--color-coral)]/20 transition-colors duration-500 select-none pointer-events-none">
+    {num}
+  </span>
+
   <!-- Header -->
-  <div class="mb-3">
-    <div class="flex items-start justify-between gap-4">
-      <h3 class="font-serif text-2xl leading-tight text-[var(--color-ink)] dark:text-[var(--color-paper)]">
-        {project.link ? (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="no-underline hover:text-[var(--color-terracotta)] dark:hover:text-[var(--color-terracotta-light)] transition-colors"
-          >
-            {project.title}
-            <span class="inline-block ml-1 text-base opacity-0 group-hover:opacity-100 transition-opacity">&nearr;</span>
-          </a>
-        ) : (
-          project.title
-        )}
-      </h3>
+  <div class="relative mb-4">
+    <h3 class="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-coral)] transition-colors duration-300">
+      {project.link ? (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2"
+        >
+          {project.title}
+          <svg class="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+      ) : (
+        project.title
+      )}
+    </h3>
+    <div class="flex items-center gap-2 mt-2">
+      <span class="text-xs font-mono text-[var(--color-coral)]">{project.role}</span>
+      <span class="text-[var(--color-text-tertiary)]">&middot;</span>
+      <span class="text-xs font-mono text-[var(--color-text-tertiary)]">{project.period}</span>
     </div>
-    <p class="text-sm text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] mt-1">
-      {project.role} &middot; {project.period}
-    </p>
   </div>
 
   <!-- Description -->
-  <p class="text-[var(--color-ink)] dark:text-[var(--color-paper)] mb-4 leading-relaxed">
+  <p class="text-[var(--color-text-secondary)] mb-5 leading-relaxed">
     {project.description}
   </p>
 
   <!-- Highlights -->
   {project.highlights.length > 0 && (
-    <ul class="mb-4 space-y-1.5">
+    <ul class="mb-5 space-y-2">
       {project.highlights.map((item) => (
-        <li class="text-sm text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] flex gap-2">
-          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&bull;</span>
+        <li class="text-sm text-[var(--color-text-secondary)] flex gap-2.5">
+          <span class="text-[var(--color-coral)] mt-1.5 shrink-0 w-1 h-1 rounded-full bg-[var(--color-coral)]"></span>
           <span>{item}</span>
         </li>
       ))}
@@ -55,9 +65,36 @@ const { project } = Astro.props;
   <!-- Tags -->
   <div class="flex flex-wrap gap-2">
     {project.tags.map((tag) => (
-      <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--color-cream-dark)] dark:bg-[var(--color-night-raised)] text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] border border-[var(--color-border-warm)] dark:border-[var(--color-border-night)]">
+      <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-md bg-[var(--color-surface-raised)] text-[var(--color-text-tertiary)] border border-[var(--color-border)] group-hover:border-[var(--color-border-hover)] transition-colors">
         {tag}
       </span>
     ))}
   </div>
 </article>
+
+<style>
+  html.light article {
+    background-color: rgba(240, 239, 236, 0.5);
+    border-color: var(--color-light-border);
+  }
+  html.light article:hover {
+    background-color: var(--color-light-surface);
+    border-color: rgba(255, 107, 71, 0.4);
+  }
+  html.light h3 {
+    color: var(--color-light-text);
+  }
+  html.light .group:hover h3 {
+    color: var(--color-coral);
+  }
+  html.light p, html.light li span:last-child {
+    color: var(--color-light-text-secondary);
+  }
+  html.light span[class*="font-mono"][class*="text-\\[var\\(--color-text-tertiary\\)\\]"] {
+    color: var(--color-light-text-tertiary);
+  }
+  html.light span[class*="bg-\\[var\\(--color-surface-raised\\)\\]"] {
+    background-color: var(--color-light-surface-raised);
+    border-color: var(--color-light-border);
+  }
+</style>
