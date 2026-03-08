@@ -16,9 +16,9 @@
   --color-text-primary: #f0eded;
   --color-text-secondary: #8a8a8e;
   --color-text-tertiary: #5a5a5e;
-  --color-coral: #ff6b47;
-  --color-coral-bright: #ff8a6a;
-  --color-coral-dim: #cc5639;
+  --color-coral: #28d98e;
+  --color-coral-bright: #4ee8a6;
+  --color-coral-dim: #1aad6f;
   --color-border: #2a2a2e;
   --color-border-hover: #3a3a3e;
 
@@ -316,7 +316,7 @@ html.light .prose hr {
 }
 
 .blob-purple {
-  background: #7c3aed;
+  background: #0d9e5c;
 }
 
 html.light .blob {
