@@ -20,6 +20,12 @@ const credentials = {
     "ICPC Manila 2022 — Secretariat Head",
     "Filipino Community Council of Victoria — Volunteer, Driver, Host",
   ],
+  press: [
+    {
+      text: 'The Philippine Times (Australia) — March 2025: "700 rejections inspired a top graduate to become a Microsoft Software Engineer"',
+      href: "https://www.linkedin.com/posts/csfromcs_microsoft-softwareengineer-techjourney-activity-7311160097613778945-bPo4/",
+    },
+  ],
 };
 ---
 
@@ -40,8 +46,8 @@ const credentials = {
         <p class="text-[var(--color-text-secondary)]">
           I grew up in Novaliches in the Philippines, went through UP Integrated School, and studied Computer Science at
           Ateneo de Manila University, where I graduated Summa Cum Laude, Rank 1, with the St. Ignatius Award — the
-          university's highest honour for academics, service, and character. I moved to Melbourne in mid-2024 and started
-          at Microsoft the following February.
+          university's highest honour for academics, service, and character. I moved to Melbourne in late-2024 and started
+          at Microsoft.
         </p>
       </div>
     </div>
@@ -53,10 +59,21 @@ const credentials = {
           That's the résumé version. Here's the real one.
         </p>
         <p class="text-[var(--color-text-secondary)]">
-          Moving to Melbourne meant leaving behind a life that was full — friends everywhere, orgs I'd built with people
-          I loved, a campus where I knew every corner. What I got in exchange was a good career and a quiet apartment. So
-          the question I've been working on since isn't about professional growth. It's about how to build a life that
-          feels as rich as the one I left.
+          When I arrived in Melbourne in 2024, I expected a challenge. I didn't expect 700 rejections. I applied everywhere —
+          corporate, retail, anything — because sometimes you just have to start somewhere. For seven months I sent
+          applications, attended networking events, did internships, and kept hearing no. There was a point where I genuinely
+          felt like none of what I'd built back home mattered here.
+        </p>
+        <p class="text-[var(--color-text-secondary)]">
+          I worked weekends at Kariton, a Filipino-inspired gelato shop, and found a piece of home in it. I found community
+          through <span class="text-[var(--color-amber)] font-medium">PinoyTech Victoria</span>, FCCVI, and UP Alumni Victoria — people who were also starting fresh, who understood what
+          the transition actually felt like. That support didn't just keep me going. It shaped what I want to do with whatever
+          opportunities I eventually get.
+        </p>
+        <p class="text-[var(--color-text-secondary)]">
+          Microsoft came unexpectedly. If you'd told me in high school that I'd work there, I would have said "not possible."
+          But I'm here now — and the 700 rejections are part of why I take the work seriously and why I don't take my position
+          for granted.
         </p>
       </div>
     </div>
@@ -66,22 +83,20 @@ const credentials = {
       <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
         <p class="text-[var(--color-text-secondary)]">
           That's why community work isn't a side thing for me.
-          <span class="text-[var(--color-amber)] font-medium">PinoyTech Victoria</span>, the Filipino Community Council,
-          mentoring — these aren't extracurriculars. They're how I stay connected to what I care about. In the Philippines,
-          I spent four years at <span class="text-[var(--color-amber)] font-medium">Ateneo CODE</span> consulting for
-          youth organisations, facilitated nationwide events, tutored high schoolers in competitive programming, and helped
-          run ICPC Manila. That instinct — build something, bring people in, make it work — is just how I operate.
+          <span class="text-[var(--color-amber)] font-medium">PinoyTech Victoria</span>,
+          mentoring, the Early-in-Career program at Microsoft — these aren't extracurriculars. I know what it's like to feel purposeless
+          when no one is accepting you. If I can shorten that road for someone else, that's the point.
         </p>
       </div>
     </div>
 
-    <!-- Professional identity -->
+    <!-- Character -->
     <div class="mb-12 reveal">
       <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
         <p class="text-[var(--color-text-secondary)]">
-          Professionally, I'm a systems thinker. I like understanding how things fit together, finding the leverage points,
-          and building solutions that hold up at scale. At Microsoft I do that with cloud infrastructure. Outside of work
-          I do it with communities and side projects.
+          I care a lot about what I do, and I follow through. I'm at my best when the work matters, when I'm collaborating with
+          people I respect, and when there's room to have fun while doing it. I learn quickly, I love being in service, and I
+          don't take myself so seriously that I can't laugh in the middle of a hard problem.
         </p>
       </div>
     </div>
@@ -134,13 +149,26 @@ const credentials = {
       </div>
 
       <!-- Community -->
-      <div class="mb-8">
+      <div class="mb-10">
         <h3 class="font-display font-medium text-lg mb-4 text-[var(--color-accent)]">Community</h3>
         <div class="space-y-2">
           {credentials.community.map((item) => (
             <div class="flex gap-2.5 text-sm text-[var(--color-text-secondary)]">
               <span class="w-1 h-1 rounded-full bg-[var(--color-amber)] mt-2 shrink-0"></span>
               <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Press -->
+      <div class="mb-8">
+        <h3 class="font-display font-medium text-lg mb-4 text-[var(--color-accent)]">Press</h3>
+        <div class="space-y-2">
+          {credentials.press.map((item) => (
+            <div class="flex gap-2.5 text-sm text-[var(--color-text-secondary)]">
+              <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
+              <a href={item.href} target="_blank" rel="noopener noreferrer" class="underline hover:text-[var(--color-accent)] transition-colors">{item.text}</a>
             </div>
           ))}
         </div>

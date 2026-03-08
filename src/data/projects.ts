@@ -79,7 +79,7 @@ export const projects: Project[] = [
   },
   {
     id: "citi",
-    title: "Citi \u2014 Summer Analyst",
+    title: "Citibank \u2014 Summer Analyst",
     role: "Enterprise Operations & Technology",
     period: "Jun \u2013 Aug 2023",
     description:
