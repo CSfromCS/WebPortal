@@ -1,4 +1,6 @@
 ---
+import { redirects } from "../data/redirects";
+
 const year = new Date().getFullYear();
 ---
 
@@ -7,7 +9,7 @@ const year = new Date().getFullYear();
     <p>&copy; {year} Christian Sarabia</p>
     <div class="flex items-center gap-4">
       <a
-        href="https://github.com/CSfromCS"
+        href={redirects.github}
         target="_blank"
         rel="noopener noreferrer"
         class="hover:text-[var(--color-coral)] transition-colors"
@@ -16,7 +18,7 @@ const year = new Date().getFullYear();
       </a>
       <span class="text-[var(--color-border)]">/</span>
       <a
-        href="https://linkedin.com/in/PLACEHOLDER"
+        href={redirects.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         class="hover:text-[var(--color-coral)] transition-colors"

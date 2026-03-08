@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { redirects } from "../data/redirects";
 ---
 
 <BaseLayout title="Home" wide>
@@ -38,7 +39,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <!-- Social links -->
     <div class="flex flex-wrap items-center gap-4 mt-12 animate-fade-up" style="animation-delay: 0.4s;">
       <a
-        href="https://github.com/CSfromCS"
+        href={redirects.github}
         target="_blank"
         rel="noopener noreferrer"
         class="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--color-border)] text-sm text-[var(--color-text-secondary)] hover:border-[var(--color-coral)] hover:text-[var(--color-coral)] transition-all duration-300"
@@ -49,7 +50,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         GitHub
       </a>
       <a
-        href="https://linkedin.com/in/PLACEHOLDER"
+        href={redirects.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         class="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--color-border)] text-sm text-[var(--color-text-secondary)] hover:border-[var(--color-coral)] hover:text-[var(--color-coral)] transition-all duration-300"
@@ -60,7 +61,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         LinkedIn
       </a>
       <a
-        href="mailto:hello@christiansarabia.com"
+        href="mailto:cs@christiansarabia.com"
         class="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--color-border)] text-sm text-[var(--color-text-secondary)] hover:border-[var(--color-coral)] hover:text-[var(--color-coral)] transition-all duration-300"
       >
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

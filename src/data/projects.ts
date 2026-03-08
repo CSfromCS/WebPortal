@@ -13,14 +13,14 @@ export const projects: Project[] = [
   {
     id: "azure",
     title: "Microsoft Azure",
-    role: "Software Engineer, L60",
-    period: "Feb 2025 \u2013 Present",
+    role: "Software Engineer",
+    period: "2025 \u2013 Present",
     description:
       "Scaling GPU, Compute, and Storage infrastructure across 400+ Azure datacenters worldwide.",
     highlights: [
       "Validating and securing hardware SKUs from factories to customers for cloud infrastructure",
       "Delivered a security initiative for secure hardware onboarding \u2014 preventing devices from accessing other devices until fully provisioned",
-      "Promoted to L60 in under 1 year \u2014 rare for a graduate hire",
+      "Promoted in under 1 year \u2014 rare for a graduate hire",
       "Also performing PM and team leadership work within role",
     ],
     tags: ["C#", "Azure", "Infrastructure"],
