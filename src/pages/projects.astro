@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<BaseLayout title="Projects" description="A few things I've built and been part of.">
+  <section class="py-8 md:py-12">
+    <h1 class="font-serif text-4xl md:text-5xl tracking-tight mb-4">Projects</h1>
+    <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] text-lg mb-12 max-w-lg">
+      A few things I've built and been part of. Not a full CV &mdash; just the stories worth telling.
+    </p>
+
+    <div class="space-y-6">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

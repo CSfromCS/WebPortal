@@ -1,0 +1,63 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article
+  class="group p-6 rounded-lg border border-[var(--color-border-warm)] dark:border-[var(--color-border-night)] bg-[var(--color-cream-dark)]/50 dark:bg-[var(--color-night-raised)]/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-terracotta)]/30 dark:hover:border-[var(--color-terracotta-light)]/30"
+>
+  <!-- Header -->
+  <div class="mb-3">
+    <div class="flex items-start justify-between gap-4">
+      <h3 class="font-serif text-2xl leading-tight text-[var(--color-ink)] dark:text-[var(--color-paper)]">
+        {project.link ? (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="no-underline hover:text-[var(--color-terracotta)] dark:hover:text-[var(--color-terracotta-light)] transition-colors"
+          >
+            {project.title}
+            <span class="inline-block ml-1 text-base opacity-0 group-hover:opacity-100 transition-opacity">&nearr;</span>
+          </a>
+        ) : (
+          project.title
+        )}
+      </h3>
+    </div>
+    <p class="text-sm text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] mt-1">
+      {project.role} &middot; {project.period}
+    </p>
+  </div>
+
+  <!-- Description -->
+  <p class="text-[var(--color-ink)] dark:text-[var(--color-paper)] mb-4 leading-relaxed">
+    {project.description}
+  </p>
+
+  <!-- Highlights -->
+  {project.highlights.length > 0 && (
+    <ul class="mb-4 space-y-1.5">
+      {project.highlights.map((item) => (
+        <li class="text-sm text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] flex gap-2">
+          <span class="text-[var(--color-terracotta)] dark:text-[var(--color-terracotta-light)] mt-0.5 shrink-0">&bull;</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-2">
+    {project.tags.map((tag) => (
+      <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--color-cream-dark)] dark:bg-[var(--color-night-raised)] text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] border border-[var(--color-border-warm)] dark:border-[var(--color-border-night)]">
+        {tag}
+      </span>
+    ))}
+  </div>
+</article>

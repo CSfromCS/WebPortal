@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:/Users/csarabia/cs local/code tests/WebPortal\" log --oneline -5)",
+      "WebFetch(domain:docs.astro.build)",
+      "WebFetch(domain:friedrichkurz.me)",
+      "Bash(npm install)",
+      "Bash(npm run build)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls \"C:\\\\Users\\\\csarabia\\\\cs local\\\\code tests\\\\WebPortal\\\\node_modules\\\\.bin\\\\astro\"*)"
+    ]
+  }
+}

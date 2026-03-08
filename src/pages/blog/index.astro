@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog" description="Thoughts, notes, and things I'm learning.">
+  <section class="py-8 md:py-12">
+    <h1 class="font-serif text-4xl md:text-5xl tracking-tight mb-4">Blog</h1>
+    <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] text-lg mb-12 max-w-lg">
+      Thoughts, notes, and things I'm learning.
+    </p>
+
+    {posts.length > 0 ? (
+      <div>
+        {posts.map((post) => (
+          <BlogPostCard
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            slug={post.id}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="text-[var(--color-ink-muted)] dark:text-[var(--color-paper-muted)] italic">
+        Nothing here yet. Check back soon.
+      </p>
+    )}
+  </section>
+</BaseLayout>

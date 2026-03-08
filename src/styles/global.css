@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+/* ── Tailwind v4 Theme ── */
+@theme {
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "Satoshi", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
+
+  --color-cream: #faf9f6;
+  --color-cream-dark: #f3f1ec;
+  --color-ink: #2c2825;
+  --color-ink-muted: #8c8580;
+  --color-terracotta: #c4704b;
+  --color-terracotta-hover: #a85a38;
+  --color-border-warm: #e8e4df;
+
+  --color-night: #1a1816;
+  --color-night-raised: #242120;
+  --color-paper: #ede9e3;
+  --color-paper-muted: #9b958f;
+  --color-terracotta-light: #d4845e;
+  --color-terracotta-light-hover: #e09570;
+  --color-border-night: #3a3633;
+
+  --animate-fade-in: fade-in 0.6s ease both;
+  --animate-fade-in-up: fade-in-up 0.6s ease both;
+
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Base Styles ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  line-height: 1.7;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Paper Grain Texture ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Dark Mode ── */
+html.dark body {
+  background-color: var(--color-night);
+  color: var(--color-paper);
+}
+
+html.dark body::before {
+  opacity: 0.02;
+}
+
+/* ── Typography ── */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ── Links ── */
+a {
+  color: inherit;
+  text-decoration-color: var(--color-terracotta);
+  text-underline-offset: 3px;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-terracotta);
+}
+
+html.dark a:hover {
+  color: var(--color-terracotta-light);
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--color-terracotta);
+  color: white;
+}
+
+html.dark ::selection {
+  background-color: var(--color-terracotta-light);
+  color: var(--color-night);
+}
+
+/* ── Prose (for blog MDX content) ── */
+.prose {
+  max-width: 42rem;
+}
+
+.prose h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.35rem;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--color-cream-dark);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+}
+
+html.dark .prose code {
+  background-color: var(--color-night-raised);
+}
+
+.prose pre {
+  background-color: var(--color-ink) !important;
+  color: var(--color-paper) !important;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-terracotta);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
+  margin-bottom: 1.25rem;
+}
+
+html.dark .prose blockquote {
+  color: var(--color-paper-muted);
+}
+
+.prose a {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+html.dark .prose a {
+  color: var(--color-terracotta-light);
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border-warm);
+  margin: 2rem 0;
+}
+
+html.dark .prose hr {
+  border-color: var(--color-border-night);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-warm);
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: var(--color-night);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-border-night);
+}

@@ -1,0 +1,24 @@
+---
+import { redirects } from "../data/redirects";
+
+export function getStaticPaths() {
+  return Object.entries(redirects).map(([path, url]) => ({
+    params: { redirect: path },
+    props: { url },
+  }));
+}
+
+const { url } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${url}`} />
+    <link rel="canonical" href={url} />
+    <title>Redirecting&hellip;</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href={url}>{url}</a>&hellip;</p>
+  </body>
+</html>
